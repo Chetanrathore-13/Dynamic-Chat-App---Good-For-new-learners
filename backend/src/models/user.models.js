@@ -4,6 +4,8 @@ import mongoose, { Schema } from "mongoose";
 import {
   AvailableUserRoles,
   UserRolesEnum,
+  AvailableSocialLogins,
+  UserLoginType
 } from "../constants.js";
 
 
@@ -53,6 +55,11 @@ const userSchema = new Schema(
     },
     otp: {
         type: String,
+    },
+    loginType: {
+      type: String,
+      enum: AvailableSocialLogins,
+      default: UserLoginType.EMAIL_PASSWORD,
     },
     otpExpiry: {
         type: Date,

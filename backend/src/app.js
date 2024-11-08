@@ -88,9 +88,10 @@ initializeSocketIO(io);
 app.get("/", (req, res) => {
     res.send("Hello World");
 });
+
 app.use("/api/v1/users", userRoutes);
-app.use("/api/v1/messages", messageRoutes);
-app.use("/api/v1/chats", chatRoutes);
+app.use("/api/v1/chat-app/messages", messageRoutes);
+app.use("/api/v1/chat-app/chats", chatRoutes);
 app.post(
     "/api/v1/seed/chat-app",
     // avoidInProduction,
